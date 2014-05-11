@@ -2,6 +2,8 @@ matrix World;
 matrix View;
 matrix Projection;
 
+
+sampler normalMapSampler : register(s1);
 // TODO: add effect parameters here.
 
 struct VertexShaderInput
@@ -40,8 +42,9 @@ VertexShaderOutput VertexShaderFunction(VertexShaderInput input)
 float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
 {
     // TODO: add your pixel shader code here.
+	float4 fColor = tex2D(normalMapSampler, input.Uv);
 
-    return input.Color;
+    return fColor;
 }
 
 technique Technique1

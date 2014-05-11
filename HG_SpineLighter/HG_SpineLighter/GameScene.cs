@@ -1,6 +1,7 @@
 ﻿using KryptonEngine.Entities;
 using KryptonEngine.SceneManagement;
 using KryptonEngine.Pools;
+using KryptonEngine.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace HG_SpineLighter
         public override void LoadContent()
         {
            test= KryptonEngine.EngineSettings.Content.Load<Effect>("testShader");
+           normalMap = KryptonEngine.Manager.TextureManager.Instance.GetElementByString("fluffy-1-normal");
+           diffuseMap = KryptonEngine.Manager.TextureManager.Instance.GetElementByString("fluffy-1-ch");
         }
 
         public override void Update()
@@ -44,6 +47,8 @@ namespace HG_SpineLighter
             spineTest.SetPosition(mCamera.GetTranslationMatrix(), new Vector2(300, 500));
             spineTest.AnimationState.SetAnimation(0, "idle", true);
             spineTest.cShader = test;
+            spineTest.normalMap = normalMap;
+            spineTest.chMap = diffuseMap;
         }
 
         public override void Draw()
