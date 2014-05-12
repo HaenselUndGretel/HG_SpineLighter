@@ -30,15 +30,11 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="font\font.xnb">
-      <Name>font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="gfx\Engine\EngineClose.xnb">
-      <Name>EngineClose</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Compile Include="fixNormal.fx">
+      <Name>fixNormal</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
     <Compile Include="spineShader.fx">
       <Name>spineShader</Name>
       <Importer>EffectImporter</Importer>
@@ -49,6 +45,24 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="font\font.spritefont">
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\fluffy-1-nrm.png">
+      <Name>fluffy-1-nrm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Content Include="spine\fluffy.atlas">
+      <Name>fluffy</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="spine\fluffy-1.png">
       <Name>fluffy-1</Name>
       <Importer>TextureImporter</Importer>
@@ -61,20 +75,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="spine\fluffy.atlas">
+    <Compile Include="gfx\Engine\EngineClose.png">
+      <Name>EngineClose</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="spine\fluffy.settings">
       <Name>fluffy</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="gfx\fluffy-1-normal.xnb">
-      <Name>fluffy-1-normal</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="gfx\fluffy-1-ch.xnb">
-      <Name>fluffy-1-ch</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

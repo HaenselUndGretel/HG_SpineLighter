@@ -30,8 +30,8 @@ namespace HG_SpineLighter
         public override void LoadContent()
         {
            test= KryptonEngine.EngineSettings.Content.Load<Effect>("testShader");
-           normalMap = KryptonEngine.Manager.TextureManager.Instance.GetElementByString("fluffy-1-normal");
-           diffuseMap = KryptonEngine.Manager.TextureManager.Instance.GetElementByString("fluffy-1-ch");
+           normalMap = KryptonEngine.Manager.TextureManager.Instance.GetElementByString("fluffy-1-nrm");
+          // diffuseMap = KryptonEngine.Manager.TextureManager.Instance.GetElementByString("fluffy-1-ch");
         }
 
         public override void Update()
@@ -43,19 +43,20 @@ namespace HG_SpineLighter
         {
             mCamera = new Camera();
 
-            spineTest = SpinePool.Fluffy.GetObject();
-            spineTest.SetPosition(mCamera.GetTranslationMatrix(), new Vector2(300, 500));
+            spineTest = SpinePool.Pools["fluffy"].GetObject();
+            spineTest.Position = new Vector2(300, 500);
             spineTest.AnimationState.SetAnimation(0, "idle", true);
             spineTest.cShader = test;
             spineTest.normalMap = normalMap;
-            spineTest.chMap = diffuseMap;
+
+            spineTest.normalMap = spineTest.mNormalConverter.convertNormalMap(spineTest.Skeleton, normalMap);
         }
 
         public override void Draw()
         {
             KryptonEngine.EngineSettings.Graphics.GraphicsDevice.Clear(new Color(25, 19, 23));
 
-           spineTest.Draw(mSpriteBatch);
+           spineTest.Draw(mSpriteBatch, mCamera.Position);
         }
     }
 }

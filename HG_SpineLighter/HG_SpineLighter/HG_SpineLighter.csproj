@@ -84,11 +84,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\HG_KryptonEngine\KryptonEngine.csproj">
+    <ProjectReference Include="..\..\..\KryptonEngine\KryptonEngine.csproj">
       <Project>{4beca7bb-c7c4-401e-a263-49b8bbba2cae}</Project>
       <Name>KryptonEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\HG_SpineLighterContent\HG_SpineLighterContent.contentproj">
+      <Project>{0C91DACD-D8C8-4F7D-A018-5F4A761FAD52}</Project>
       <Name>HG_SpineLighterContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
@@ -115,6 +116,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
