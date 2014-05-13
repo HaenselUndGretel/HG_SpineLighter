@@ -30,7 +30,7 @@ float4 PS_MAIN(PS_INPUT input) : COLOR
 								0,					 0,					 1
 							  };
 
-    return float4(1, 0, 0, 1);
+    return float4(1,0,0,1);
 }
 
 technique Technique1
